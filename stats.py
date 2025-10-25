@@ -6,6 +6,8 @@ def get_num_words(text):
 def get_num_letters(text):
     letters = {}
     for letter in text:
+        if not letter.isalpha():
+            continue
         letter = letter.lower()
         if letter not in letters:
             letters[letter] = 0

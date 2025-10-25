@@ -1,16 +1,12 @@
 from stats import get_num_words, get_num_letters, letters_sorted
 import sys
-print(sys.argv)
-
-
-for arg in sys.argv:
-    if arg == "main.py":
-        print("Usage: python3 main.py <path_to_book>")
-        sys.exit(1)
+if len(sys.argv) != 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
 
 
 def main():
-    book_path = sys.argv
+    book_path = sys.argv[1]
     text = get_book_text(book_path)
     num_words = get_num_words(text)
     num_letters = get_num_letters(text)
@@ -30,9 +26,9 @@ def print_report(book_path, num_words, letters_sorted_list):
     print(f"Found {num_words} total words")
     print("---------- Character Count ----------")
     for item in letters_sorted_list:
-        if not item["letter"].isalpha():
+        if not item['letter'].isalpha():
             continue
-        print(f"{item["letter"]}: {item["num"]}")
+        print(f"{item['letter']}: {item['num']}")
 
     print("========== END ==========")
 
