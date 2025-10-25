@@ -1,8 +1,16 @@
 from stats import get_num_words, get_num_letters, letters_sorted
+import sys
+print(sys.argv)
+
+
+for arg in sys.argv:
+    if arg == "main.py":
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
 
 
 def main():
-    book_path = "books/frankenstein.txt"
+    book_path = sys.argv
     text = get_book_text(book_path)
     num_words = get_num_words(text)
     num_letters = get_num_letters(text)
